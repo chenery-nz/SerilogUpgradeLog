@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerilogUpgradeLog", "src\SerilogUpgradeLog\SerilogUpgradeLog.csproj", "{58355512-B0A5-4E8B-A071-80364CACD68B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A692C7F6-28C1-4A91-8703-B7B7F281623D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58355512-B0A5-4E8B-A071-80364CACD68B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58355512-B0A5-4E8B-A071-80364CACD68B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58355512-B0A5-4E8B-A071-80364CACD68B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58355512-B0A5-4E8B-A071-80364CACD68B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{58355512-B0A5-4E8B-A071-80364CACD68B} = {A692C7F6-28C1-4A91-8703-B7B7F281623D}
+	EndGlobalSection
+EndGlobal
