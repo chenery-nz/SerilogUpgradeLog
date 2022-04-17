@@ -1,15 +1,50 @@
 on:
+  pull_request:
   push:
     branches:
     - main
+    - dev
+
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+    - name: Install GitVersion
+      uses: gittools/actions/gitversion/setup@v0.9.13
+      with:
+        versionSpec: '5.x'
+
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Determine Version
+      id: gitversion
+      uses: gittools/actions/gitversion/execute@v0.9.13
+      with:
+          useConfigFile: true
+          configFilePath: ./.github/gitversion.yml  
+  
     - name: Build
       run: dotnet build --configuration Release
+  
     - name: Test
       run: dotnet test --configuration Release --no-build
+  
+  package:
+    name: Package
+    runs-on: ubuntu-latest
+    needs: Build
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - name: Package nuget
+      run: dotnet pack --configuration release -o:package /p:PackageVersion=${{ steps.gitversion.outputs.AssemblySemVer }}
+
+    - name: Prep packages
+      run: dotnet nuget add source --username chenery-nz --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/chenery-nz/index.json"
+
+    - name: Publish to GitHub packages
+      run: dotnet nuget push SerilogUpgradeLog/SerilogUpgradeLog/package/*.nupkg'. --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
