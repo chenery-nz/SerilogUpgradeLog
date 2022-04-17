@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
         <AssemblyName>DbUp.SerilogUpgradeLog</AssemblyName>
         <RootNamespace>DbUp.SerilogUpgradeLog</RootNamespace>
+        <RepositoryUrl>https://github.com/chenery-nz/SerilogUpgradeLog</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>

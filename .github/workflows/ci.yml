@@ -62,7 +62,7 @@ jobs:
       working-directory: ${{ github.workspace }}
       
     - name: Prep publish to github
-      run: dotnet nuget add source --username chenery-nz --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/chenery-nz/SerilogUpgradeLog/index.json"
+      run: dotnet nuget add source --username chenery-nz --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/chenery-nz/index.json"
 
     - name: Publish to GitHub packages
       run: dotnet nuget push ${{ github.workspace }}/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
