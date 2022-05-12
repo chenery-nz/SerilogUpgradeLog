@@ -7,6 +7,9 @@
         <AssemblyName>DbUp.SerilogUpgradeLog</AssemblyName>
         <RootNamespace>DbUp.SerilogUpgradeLog</RootNamespace>
         <RepositoryUrl>https://github.com/chenery-nz/SerilogUpgradeLog</RepositoryUrl>
+        <PackageId>DbUp.SerilogUpgradeLog</PackageId>
+        <Authors>Kent Chenery</Authors>
+        <Description>A Serilog provider for DbUp</Description>
     </PropertyGroup>
 
     <ItemGroup>
